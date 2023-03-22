@@ -5,20 +5,20 @@ services:
     webserver:
         build:
             context: ./docker/bin/${PHPVERSION}
-        container_name: "${COMPOSE_PROJECT_NAME}"
+        container_name: "${COMPOSE_PROJECT_NAME}-${PHPVERSION}"
         restart: "always"
         ports:
             - "${LOCAL_HTTP_PORT}:80"
             - "${LOCAL_HTTPS_PORT}:443"
         volumes:
-            - ${DOCUMENT_ROOT-./src}:/var/www/html:rw
+            - ${DOCUMENT_ROOT-./src}:/var/www/laradocker:rw
             - ${PHP_INI-./docker/config/php/php.ini}:/usr/local/etc/php/php.ini
             - ${SSL_DIR-./docker/config/ssl}:/etc/apache2/ssl/
             - ${VHOSTS_DIR-./docker/config/vhosts}:/etc/apache2/sites-enabled
             - ${LOG_DIR-./docker/logs/apache2}:/var/log/apache2
             - ${XDEBUG_LOG_DIR-./docker/logs/xdebug}:/var/log/xdebug
         environment:
-            APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/html/public}
+            APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/laradocker/public}
             XDEBUG_CONFIG: "client_host=host.docker.internal remote_port=${XDEBUG_PORT}"
         extra_hosts:
             - "host.docker.internal:host-gateway"

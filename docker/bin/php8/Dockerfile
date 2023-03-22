@@ -94,7 +94,7 @@ libpng-dev && \
 RUN mkdir -p /etc/apache2/ssl
 
 # Working directory
-WORKDIR /var/www/html
+WORKDIR /var/www/laradocker
 
 # Enable SSL support
 RUN a2enmod ssl && a2enmod rewrite

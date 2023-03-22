@@ -15,12 +15,12 @@
 ``` 
 cd /User/username/Sites
 
-git clone git@github.com:siQuang/laradocker.git 
+git clone https://github.com/siquang/laradocker.git 
 
 cd laradocker
 ```
 
-## Install Laravel
+## Create new Laravel project
 ```
 composer create-project lavarel/laravel src
 ```
@@ -32,3 +32,8 @@ composer global require laravel/installer
 laravel new src
 ```
 
+## Laravel Artisan command
+For all artisan commands, run this in a shell inside the running container
+```
+docker exec -it laradocker /bin/bash
+```
