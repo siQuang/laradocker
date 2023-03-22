@@ -35,3 +35,37 @@ For all artisan commands, run this in a shell inside the running container
 ```
 docker exec -it laradocker /bin/bash
 ```
+
+# Bundling Assets with Vite and TailwindCSS
+
+## Install Tailwind
+```
+cd src
+
+npm install -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init -p
+```
+
+## Configure template paths in tailwind.config.js file
+```
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+## Add the Tailwind directives to app.css
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
