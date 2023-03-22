@@ -4,13 +4,6 @@
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) Installed
 - Composer (globally install)
 
-## Edit Docker .env file
-- COMPOSE_PROJECT_NAME | Change the container name
-- PHPVERSION | Select PHP version
-- LOCAL_HTTP_PORT | Change HTTP port
-- LOCAL_HTTPS_PORT | Change HTTPS port
-
-
 ## Clone repo from Github to local directory
 ``` 
 cd /User/username/Sites
@@ -19,6 +12,11 @@ git clone https://github.com/siquang/laradocker.git
 
 cd laradocker
 ```
+## Edit Docker .env file
+- COMPOSE_PROJECT_NAME | Change the container name
+- PHPVERSION | Select PHP version
+- LOCAL_HTTP_PORT | Change HTTP port
+- LOCAL_HTTPS_PORT | Change HTTPS port
 
 ## Create new Laravel project
 ```
