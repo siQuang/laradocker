@@ -1,8 +1,10 @@
-# Setup Local (MacOS) Laravel Development with Docker
+# Boilerplate for Laravel Development with Docker
 
 ## Prerequistes:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) Installed
 - Composer (globally install)
+- Git
+- npm
 
 ## Clone repo from Github to local directory
 ``` 
