@@ -105,7 +105,24 @@ cd src
 npm install @inertiajs/react @vitejs/plugin-react react react-dom
 ```
 
-Initialize the Inertia app with base component
+Update vite.config.js file and add reactjs plugin
+```
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+    plugins: [
+        react(),
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+});
+```
+
+Initialize the Inertia app with base component, and rename the file app.js => app.jsx
 ```
 import { createInertiaApp } from '@inertiajs/react'
 import { createRoot } from 'react-dom/client'
@@ -119,6 +136,23 @@ createInertiaApp({
     createRoot(el).render(<App {...props} />)
   },
 })
+```
+
+Add a new directory 'Pages' in resources/js/
+```
+cd src/resources/js
+mkdir Pages
+```
+
+Create a new page (we call it Welcome.php) in Pages directory and add some test
+```
+const Welcome = () => {
+  return (
+    <h1>Welcome to our new app</h1>
+  )
+}
+
+export default Welcome;
 ```
 
 Remove the following unused Laravel files
