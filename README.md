@@ -58,6 +58,7 @@ Copy the following code to the root template resources/views/app.blade.php
 
         <title>Laravel</title>
 
+        @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.jsx'])
         @inertiaHead
     </head>
@@ -147,7 +148,7 @@ cd src/resources/js
 mkdir Pages
 ```
 
-Create a new page (we call it Welcome.php) in Pages directory and add some test
+Create a new React page call Welcome.jsx in Pages directory and add some test
 ```
 const Welcome = () => {
   return (
@@ -156,6 +157,16 @@ const Welcome = () => {
 }
 
 export default Welcome;
+```
+
+Update render method in routes/web.php
+```
+use Inertia\Inertia;
+...
+
+Route::get('/', function () {
+    return inertia::render('Welcome');
+}
 ```
 
 Remove the following unused Laravel files
