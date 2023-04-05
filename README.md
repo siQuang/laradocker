@@ -97,7 +97,7 @@ class EventsController extends Controller
 }
 ```
 
-## Install Inertia (Client-side) for ReactJS
+## Install Inertia (Client-side) with ReactJS
 
 Install dependencies with NPM
 ```
