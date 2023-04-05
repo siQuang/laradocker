@@ -50,18 +50,21 @@ composer require inertiajs/inertia-laravel
 
 Copy the following code to the root template resources/views/app.blade.php 
 ```
-import { createInertiaApp } from '@inertiajs/react'
-import { createRoot } from 'react-dom/client'
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-createInertiaApp({
-  resolve: name => {
-    const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
-    return pages[`./Pages/${name}.jsx`]
-  },
-  setup({ el, App, props }) {
-    createRoot(el).render(<App {...props} />)
-  },
-})
+        <title>Laravel</title>
+
+        @vite(['resources/css/app.css', 'resources/js/app.jsx'])
+        @inertiaHead
+    </head>
+    <body>
+        @inertia
+    </body>
+</html>
 ```
 
 Setup the Inertia middleware
