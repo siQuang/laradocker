@@ -32,10 +32,99 @@ composer global require laravel/installer
 laravel new src
 ```
 
-## Laravel Artisan command
-For all artisan commands, run this in a shell inside the running container
+## Run Artisan command
+Run all artisan commands inside a running container shell
 ```
 docker exec -it laradocker /bin/bash
+```
+
+# Laravel 10 + Inertia + ReacJS
+
+## Install Inertia (Server-side)
+
+Install Inertia server-side adapter using Composer package manager
+```
+cd src
+composer require inertiajs/inertia-laravel
+```
+
+Copy the following code to the root template resources/views/app.blade.php 
+```
+import { createInertiaApp } from '@inertiajs/react'
+import { createRoot } from 'react-dom/client'
+
+createInertiaApp({
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
+    return pages[`./Pages/${name}.jsx`]
+  },
+  setup({ el, App, props }) {
+    createRoot(el).render(<App {...props} />)
+  },
+})
+```
+
+Setup the Inertia middleware
+```
+php artisan inertia:middleware
+```
+
+Register the HandleInertiaRequests middleware in App\Http\Kernel as the last item in the web group
+```
+'web' => [
+    // ...
+    \App\Http\Middleware\HandleInertiaRequests::class,
+],
+```
+
+Replace Laravel render with Inertia::render in controller
+```
+use Inertia\Inertia;
+
+class EventsController extends Controller
+{
+    public function show(Event $event)
+    {
+        return Inertia::render('Event/Show', [
+            'event' => $event->only(
+                'id',
+                'title',
+                'start_date',
+                'description'
+            ),
+        ]);
+    }
+}
+```
+
+## Install Inertia (Client-side) for ReactJS
+
+Install dependencies with NPM
+```
+cd src
+npm install @inertiajs/react @vitejs/plugin-react react react-dom
+```
+
+Initialize the Inertia app with base component
+```
+import { createInertiaApp } from '@inertiajs/react'
+import { createRoot } from 'react-dom/client'
+
+createInertiaApp({
+  resolve: name => {
+    const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
+    return pages[`./Pages/${name}.jsx`]
+  },
+  setup({ el, App, props }) {
+    createRoot(el).render(<App {...props} />)
+  },
+})
+```
+
+Remove the following unused Laravel files
+```
+src/resources/js/bootstrap.js
+src/resources/views/welcome.blade.php
 ```
 
 # Bundling Assets with Vite and TailwindCSS
