@@ -14,22 +14,31 @@ git clone https://github.com/siquang/laradocker.git
 
 cd laradocker
 ```
-## Edit Docker .env file
+## Rename .env.laradocker to .env and change the following variables
 - COMPOSE_PROJECT_NAME | Change the container name
 - PHPVERSION | Select PHP version
 - LOCAL_HTTP_PORT | Change HTTP port
 - LOCAL_HTTPS_PORT | Change HTTPS port
 
-## Create new Laravel project
+## Rename /vhosts/default.example.conf to /vhosts/default.conf
 ```
-composer create-project lavarel/laravel src
+cd docker/bin/config/vhosts
+
+cp default.example.conf default.conf
+```
+
+## Create new Laravel project
+NOTES: Keep the project name 'html'. If you change the namemake sure to also change this in .env, docker-compose.yml, and Dockerfile
+```
+composer create-project lavarel/laravel html
 ```
 
 ## Or, create a new Laravel project by globally installing the Laravel installer via Composer
+NOTES: Keep the project name 'html'. If you change the namemake sure to also change this in .env, docker-compose.yml, and Dockerfile
 ```
 composer global require laravel/installer
 
-laravel new src
+laravel new html
 ```
 
 ## Run Artisan command

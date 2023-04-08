@@ -78,7 +78,7 @@ RUN apt-get -y update && \
     docker-php-ext-install gd
 
 # Working directory
-WORKDIR /var/www/laradocker
+WORKDIR /var/www/html
 
 # Insure an SSL directory exists
 RUN mkdir -p /etc/apache2/ssl
