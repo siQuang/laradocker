@@ -1,2 +1,0 @@
-localhost:80 172.30.0.1 - - [09/Feb/2023:09:12:07 +0000] "GET / HTTP/1.1" 200 6813 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
-localhost:80 172.30.0.1 - - [09/Feb/2023:09:12:10 +0000] "GET / HTTP/1.1" 200 6812 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"

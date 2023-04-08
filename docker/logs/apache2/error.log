@@ -1,5 +1,0 @@
-[Thu Feb 09 09:08:08.624273 2023] [core:warn] [pid 1] AH00111: Config variable ${APACHE_LARAVEL_ROOT} is not defined
-AH00112: Warning: DocumentRoot [/var/www/laradock/public] does not exist
-AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.30.0.2. Set the 'ServerName' directive globally to suppress this message
-[Thu Feb 09 09:08:08.646498 2023] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/8.1.15 OpenSSL/1.1.1n configured -- resuming normal operations
-[Thu Feb 09 09:08:08.647121 2023] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
