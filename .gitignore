@@ -1,0 +1,52 @@
+#-------------------------
+# Docker
+#-------------------------
+.env
+/docker/config/vhosts/default.conf
+/docker/config/initdb/*
+/docker/config/ssl/*
+/docker/logs/apache2/*
+/docker/logs/mysql/*
+/docker/logs/xdebug/*
+/docker/data/mysql/*
+
+#-------------------------
+# IDE
+#-------------------------
+.DS_Store
+sftp-config.json
+.vscode/*
+*.code-workspace
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+#-------------------------
+# Laravel
+#-------------------------
+/html/.phpunit.cache
+/html/node_modules
+/html/public/build
+/html/public/hot
+/html/public/storage
+/html/storage/*.key
+/html/vendor
+/html/.env
+/html/.env.backup
+/html/.env.production
+/html/.phpunit.result.cache
+/html/Homestead.json
+/html/Homestead.yaml
+/html/auth.json
+/html/npm-debug.log
+/html/yarn-error.log
+/html/.fleet
+/html/.idea
+/html/.vscode
+
+#-------------------------
+# Git
+#-------------------------
+!.gitkeep
