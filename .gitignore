@@ -9,6 +9,7 @@
 /docker/logs/mysql/*
 /docker/logs/xdebug/*
 /docker/data/mysql/*
+/html/*
 
 #-------------------------
 # IDE
