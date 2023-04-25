@@ -2,23 +2,38 @@ version: "3.8"
 
 services:
 
-    webserver:
+    appserver:
         build:
-            context: ./docker/bin/${PHPVERSION}
+            context: ./docker/dockerfiles/${PHP_VERSION}
         container_name: "${PROJECT_NAME}"
         restart: "always"
         ports:
             - "${LOCAL_HTTP_PORT}:80"
-            - "${LOCAL_HTTPS_PORT}:443"
+            # - "${LOCAL_HTTPS_PORT}:443"
         volumes:
             - ${DOCUMENT_ROOT}:/var/www/html:rw
             - ${PHP_INI}:/usr/local/etc/php/php.ini
-            - ${SSL_DIR}:/etc/apache2/ssl/
-            - ${VHOSTS_DIR}:/etc/apache2/sites-enabled
-            - ${APACHE_LOG_DIR}:/var/log/apache2
-            - ${XDEBUG_LOG_DIR}:/var/log/xdebug
+            - ${DIR_SSL}:/etc/apache2/ssl/
+            - ${DIR_VHOSTS}:/etc/apache2/sites-enabled
+            - ${DIR_APACHE_LOG}:/var/log/apache2
         environment:
-            APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT}
-            XDEBUG_CONFIG: "client_host=host.docker.internal remote_port=${XDEBUG_PORT}"
+            APACHE_DOCUMENT_ROOT: ${DOCUMENT_ROOT_APACHE}
         extra_hosts:
             - "host.docker.internal:host-gateway"
+
+    # ---------------------------------------------------
+    # Uncomment the following if using Docker database image
+    # ---------------------------------------------------
+    # database:
+    #     build:
+    #         context: "./docker/dockerfiles/${MYSQL_VERSION}"
+    #         container_name: "${PROJECT_NAME}-DB"
+    #         restart: "always"
+    #         ports:
+    #             - "${MYSQL_LOCAL_PORT}:3306"
+    #         volumes:
+    #             - "${MYSQL_DATA_PATH}:/var/lib/mysql"
+    #             - "${MYSQL_LOG_PATH}:/var/log/mysql"
+    #         environment:
+    #             MYSQL_DATABASE: ${MYSQL_DATABASE}
+    #             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}

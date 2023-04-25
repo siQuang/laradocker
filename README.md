@@ -75,7 +75,7 @@ make exec
 ```
 
 ## Makefile Commands
-These are some of the Makefile commands to use with your development. For more commands look in Makefile file.
+These are some of the Makefile commands to use with your development.
 
 Usage: **make COMMAND**
 
