@@ -20,7 +20,7 @@ cd laravel-app
 For more commands look in Makefile file
 
 | Command   | Description                             |
-| --------- | ---------------------------------------:|
+| --------- | :---------------------------------------|
 | env       | Copy .env-laradocker to .env            |
 | project   | Build Docker and create Laravel project |
 | build     | Build Docker container                  |
@@ -37,11 +37,13 @@ make env
 ```
 
 Change the environment variables
-- PROJECT_NAME | Change the container name
-- LARAVEL_VERSION | Choose a Laravel version
-- PHPVERSION | Select PHP version
-- LOCAL_HTTP_PORT | Change HTTP port
-- LOCAL_HTTPS_PORT | Change HTTPS port
+| Environment       | Description               |
+|-------------------|:--------------------------|
+| PROJECT_NAME      | Container name            |
+| LARAVEL_VERSION   | Choose a Laravel version  |
+| PHPVERSION        | Select PHP version        |
+| LOCAL_HTTP_PORT   | Change HTTP port          |
+| LOCAL_HTTPS_PORT  | Change HTTPS port         |
 
 ## Build Docker image and make Laravel project
 The command below will build the Docker container and setup a Laravel project
