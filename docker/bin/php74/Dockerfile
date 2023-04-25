@@ -67,6 +67,8 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install calendar && \
     docker-php-ext-install exif
 
+# Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Install Freetype 
 RUN apt-get -y update && \

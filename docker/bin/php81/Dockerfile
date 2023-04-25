@@ -67,8 +67,7 @@ RUN cd /usr/local/src && \
     rm -rf imagick && \
     docker-php-ext-enable imagick
 
-# Other PHP8 Extensions
-
+# PHP Extensions
 RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install pdo_sqlite && \
     docker-php-ext-install mysqli && \
@@ -80,6 +79,8 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install calendar && \
     docker-php-ext-install exif
 
+# Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Install Freetype 
 RUN apt-get -y update && \

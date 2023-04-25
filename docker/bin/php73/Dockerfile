@@ -30,7 +30,6 @@ RUN pecl install redis-5.0.2 && \
     docker-php-ext-enable redis
 
 # Other PHP7 Extensions
-
 RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install pdo_sqlite && \
     docker-php-ext-install mysqli && \
@@ -41,6 +40,9 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install -j$(nproc) intl && \
     docker-php-ext-install mbstring && \
     docker-php-ext-install gettext
+
+# Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Install Freetype 
 RUN apt-get -y update && \
