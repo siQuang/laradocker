@@ -22,7 +22,7 @@ services:
             - "host.docker.internal:host-gateway"
 
     # ---------------------------------------------------
-    # Uncomment the following if using Docker database image
+    # Uncomment the following if using database image
     # ---------------------------------------------------
     # database:
     #     build:

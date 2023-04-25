@@ -28,17 +28,13 @@ RUN apt-get update -y && apt-get install -y \
     libcurl4-openssl-dev \
     unzip zip \
     iputils-ping \
-    openssl && \
-    rm -rf /var/lib/apt/lists/*
+    openssl
 
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # PHP Extensions
-RUN docker-php-ext-install pdo_mysql mysqli intl gettext gd curl mbstring
+RUN docker-php-ext-install pdo_mysql mysqli intl gettext gd curl mbstring json
 
-RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
-
-# Cleanup
-RUN rm -rf /usr/src/*
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN docker-php-ext-install -j$(nproc) gd

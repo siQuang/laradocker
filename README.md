@@ -13,7 +13,7 @@ And that's' it! Direct your browser to http://localhost
 - Makefile
 
 ## Installation
-Clone this Git repository and rename your project to anything you want
+Clone this Git repository and rename your project to anything you want.
 ``` 
 git clone https://github.com/siquang/laradocker.git laravel-app
 
@@ -26,18 +26,18 @@ Run the Makefile command below to make a copy to .env file
 make env
 ```
 
-Change the environment variables in .env file
+Change the environment variables in .env file. If using PHP < 8.0 make sure to choose the correct Laravel version that support the PHP version you are using.
 
 | Environment       | Description               |
 |-------------------|:--------------------------|
 | PROJECT_NAME      | Container name            |
-| LARAVEL_VERSION   | Choose a Laravel version  |
+| LARAVEL_VERSION   | Leave blank for latest    |
 | PHP_VERSION       | Select PHP version        |
 | LOCAL_HTTP_PORT   | Change HTTP port          |
 | LOCAL_HTTPS_PORT  | Change HTTPS port         |
 
 ## Setting up database
-If using host machine database. Set DB_HOST in Laravel .env to use the internal host gateway
+If using host machine database. Set DB_HOST in Laravel .env to use the internal host gateway.
 ```
 DB_HOST=host.docker.internal
 ```
@@ -48,9 +48,17 @@ If using Database image, make sure to uncomment the database section in:
 - In Laravel .env file set the DB_HOST=localhost
 
 ## Create a Laravel project and build container
-The command below will build the Docker container and setup a Laravel project
+Type the command below to build the container, fire up the webserver and install Laravel project all in one command.
 ```
 make project
+```
+
+OR if you prefer to do each step manually, here are the commands.
+```
+make build
+make up
+make laravel
+make composer-update
 ```
 
 ## Open project in browser
@@ -69,7 +77,7 @@ make migrate
 make seed
 ```
 
-To execute a command inside the running container
+To execute a command inside the running container.
 ```
 make exec
 ```
