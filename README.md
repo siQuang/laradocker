@@ -1,5 +1,5 @@
 # Laravel with Docker
-This is for Laravel local development with Docker Compose. The idea came from Sprintcube LAMP stack with Docker Compose. This built consists of PHP (8.2, 8.1, 8.0, 7.4, 7.3, 7.2), Apache and MariaDB (10.6, 10.5, 10.4, 10.3). Set the version needed in .env file. 
+This is for Laravel local development with Docker Compose. This built consists of PHP (8.2, 8.1, 8.0, 7.4, 7.3, 7.2), Apache and MariaDB (10.6, 10.5, 10.4, 10.3). Set the version needed in .env file. 
 
 You can have the project up and running in a few minutes.
 - Clone this git repository and CD into the project diretory
@@ -9,8 +9,8 @@ You can have the project up and running in a few minutes.
 And that's' it! Direct your browser to http://localhost
 
 ## Prerequistes:
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- Makefile
+- [Docker](https://www.docker.com/products/docker-desktop/)
+- [Makefile](https://www.gnu.org/software/make/)
 
 ## Installation
 Clone this Git repository and rename your project to anything you want.
