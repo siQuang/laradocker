@@ -4,7 +4,7 @@ This is for Laravel local development with Docker Compose. The idea came from Sp
 You can have the project up and running in a few minutes.
 - Clone this git repository and CD into the project diretory
 - Type: ```make env``` and change the environment to your specification
-- Type ```make project``` to build container and create a Laravel project
+- Type: ```make project``` to build container and create a Laravel project
 
 And that's' it! Direct your browser to http://localhost
 
@@ -12,12 +12,66 @@ And that's' it! Direct your browser to http://localhost
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Makefile
 
-## Clone repo from Github to local directory
-Rename your project to anything you want
+## Installation
+Clone this Git repository and rename your project to anything you want
 ``` 
 git clone https://github.com/siquang/laradocker.git laravel-app
 
 cd laravel-app
+```
+
+## Make a copy of .env and vhosts/default.conf
+Run the Makefile command below to make a copy to .env file
+```
+make env
+```
+
+Change the environment variables in .env file
+
+| Environment       | Description               |
+|-------------------|:--------------------------|
+| PROJECT_NAME      | Container name            |
+| LARAVEL_VERSION   | Choose a Laravel version  |
+| PHP_VERSION       | Select PHP version        |
+| LOCAL_HTTP_PORT   | Change HTTP port          |
+| LOCAL_HTTPS_PORT  | Change HTTPS port         |
+
+## Setting up database
+If using host machine database. Set DB_HOST in Laravel .env to use the internal host gateway
+```
+DB_HOST=host.docker.internal
+```
+
+If using Database image, make sure to uncomment the database section in:
+- .env file
+- docker-compose.yml file
+- In Laravel .env file set the DB_HOST=localhost
+
+## Create a Laravel project and build container
+The command below will build the Docker container and setup a Laravel project
+```
+make project
+```
+
+## Open project in browser
+To view the project, open a browser and enter in the container url.
+```
+http://localhost:8080
+```
+
+## Run migration and seeders with Makefile commands
+You can use the ```make migrate``` or ```make seed``` to migrate and seed the database.
+```
+# Run migrate
+make migrate
+
+# Run seeder
+make seed
+```
+
+To execute a command inside the running container
+```
+make exec
 ```
 
 ## Makefile Commands
@@ -35,56 +89,3 @@ Usage: **make COMMAND**
 | exec      | Execute a command inside container      |
 | migrate   | php artisan migrate                     |
 | seed      | php artisan db:seed                     |
-
-## Make a copy of .env and vhosts/default.conf
-Run the Makefile command below to make a copy to .env file
-```
-make env
-```
-
-Change the environment variables
-
-| Environment       | Description               |
-|-------------------|:--------------------------|
-| PROJECT_NAME      | Container name            |
-| LARAVEL_VERSION   | Choose a Laravel version  |
-| PHP_VERSION       | Select PHP version        |
-| LOCAL_HTTP_PORT   | Change HTTP port          |
-| LOCAL_HTTPS_PORT  | Change HTTPS port         |
-
-## Setting up database
-If using host machine database. Set the Laravel .env DB_HOST to use the internal host gateway
-```
-DB_HOST=host.docker.internal
-```
-
-If using Database image, make sure to uncomment the database section in:
-- .env file
-- docker-compose.yml file
-- In Laravel .env file set the DB_HOST=localhost
-
-## Build Docker image and make Laravel project
-The command below will build the Docker container and setup a Laravel project
-```
-make project
-```
-
-## Open project in browser
-To view the project, open a browser and enter in the container url.
-```
-http://localhost:8080
-```
-
-## Run migration and seeders with Makefile commands
-```
-# Run migrate
-make migrate
-
-# Run seeder
-make seed
-```
-
-To execute a command inside the running container
-```
-make exec
-```
