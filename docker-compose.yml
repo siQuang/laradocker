@@ -9,7 +9,7 @@ services:
         restart: "always"
         ports:
             - "${LOCAL_HTTP_PORT}:80"
-            # - "${LOCAL_HTTPS_PORT}:443"
+            - "${LOCAL_HTTPS_PORT}:443"
         volumes:
             - ${DOCUMENT_ROOT}:/var/www/html:rw
             - ${PHP_INI}:/usr/local/etc/php/php.ini
