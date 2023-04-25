@@ -4,7 +4,7 @@ This is for Laravel local development with Docker Compose. This built consists o
 You can have the project up and running in a few minutes.
 - Clone this git repository and CD into the project diretory
 - Type: ```make env``` and change the environment to your specification
-- Type: ```make project``` to build container and create a Laravel project
+- Type: ```make project``` to build the container and create Laravel project
 
 And that's' it! Direct your browser to http://localhost
 
