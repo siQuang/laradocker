@@ -26,14 +26,14 @@ services:
     # ---------------------------------------------------
     # database:
     #     build:
-    #         context: "./docker/dockerfiles/${MYSQL_VERSION}"
+    #         context: "./docker/dockerfiles/$DB_VERSION}"
     #         container_name: "${PROJECT_NAME}-DB"
     #         restart: "always"
     #         ports:
-    #             - "${MYSQL_LOCAL_PORT}:3306"
+    #             - "$DB_LOCAL_PORT}:3306"
     #         volumes:
-    #             - "${MYSQL_DATA_PATH}:/var/lib/mysql"
-    #             - "${MYSQL_LOG_PATH}:/var/log/mysql"
+    #             - "$DB_DATA_PATH}:/var/lib/mysql"
+    #             - "$DB_LOG_PATH}:/var/log/mysql"
     #         environment:
-    #             MYSQL_DATABASE: ${MYSQL_DATABASE}
-    #             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    #             MYSQL_DATABASE: $DB_DATABASE}
+    #             MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD}
