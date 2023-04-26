@@ -48,7 +48,7 @@ If using Database image, make sure to uncomment the database section in:
 - In Laravel .env file set the DB_HOST=localhost
 
 ## Create a Laravel project and build container
-Type the command below to build the container, fire up the webserver and install Laravel project all in one command.
+Type the command below to build the container, fire up the webserver and install Laravel project all in one command. All Laravel files will be install under the directory 'html'.
 ```
 make project
 ```
