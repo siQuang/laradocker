@@ -3,8 +3,8 @@ This is for Laravel local development with Docker Compose. This built consists o
 
 You can have the project up and running in a few minutes.
 - Clone this git repository and CD into the project diretory
-- Type: ```make env``` and change the environment to your specification
-- Type: ```make project``` to build the container and create Laravel project
+- Type: `make env` and change the environment to your specification
+- Type: `make project` to build the container and create Laravel project
 
 And that's' it! Direct your browser to http://localhost
 
@@ -68,7 +68,7 @@ http://localhost:8080
 ```
 
 ## Run migration and seeders with Makefile commands
-You can use the ```make migrate``` or ```make seed``` to migrate and seed the database.
+You can use the `make migrate` or `make seed` to migrate and seed the database.
 ```
 # Run migrate
 make migrate
@@ -81,6 +81,10 @@ To execute a command inside the running container.
 ```
 make exec
 ```
+
+---
+> ### NOTE: Execute all Laravel `php artisan` commands inside the '*html*' directory and execute all Makefile commands inside project root directory where the Makefile is located.
+---
 
 ## Makefile Commands
 These are some of the Makefile commands to use with your development.
