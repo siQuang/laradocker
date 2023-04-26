@@ -38,3 +38,9 @@ migrate:
 
 seed:
 	docker exec ${PROJECT_NAME} bash -c "php artisan db:seed"
+
+npm-dev:
+	cd ./html; npm run dev
+
+npm-build:
+	cd ./html; npm run build
