@@ -97,3 +97,5 @@ Usage: **make COMMAND**
 | exec      | Execute a command inside container      |
 | migrate   | php artisan migrate                     |
 | seed      | php artisan db:seed                     |
+| npm-dev   | Run command: npm run dev                |
+| npm-build | Run command: npm run build              |
