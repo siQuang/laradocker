@@ -10,7 +10,7 @@ And that's' it! Direct your browser to http://localhost
 
 ## Prerequistes:
 - [Docker](https://www.docker.com/products/docker-desktop/)
-- [Makefile](https://www.gnu.org/software/make/)
+- [Makefile](https://www.gnu.org/software/make/) | It's recommended to install Makefile, but if you prefer to install manually, look in the Makefile file for all the commands to get the project up and running.
 
 ## Installation
 Clone this Git repository and rename your project to anything you want.
