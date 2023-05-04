@@ -44,4 +44,4 @@ npm-build:
 	cd ./html; npm run build
 
 npm-install:
-	docker exec ${PROJECT_NAME} bash -c "npm install"
+	cd ./html; npm install
