@@ -3,7 +3,8 @@ This is for Laravel local development with Docker Compose. This built consists o
 
 You can have the project up and running in a few minutes.
 - Clone this git repository and CD into the project diretory
-- Type: `make env` and change the environment to your specification
+- Make a copy of .env from .env.laradocker file
+- Make changes in .env to your specification
 - Type: `make project` to build the container and create Laravel project
 
 And that's' it! Direct your browser to http://localhost
@@ -20,10 +21,10 @@ git clone https://github.com/siquang/laradocker.git laravel-app
 cd laravel-app
 ```
 
-## Make a copy of .env and vhosts/default.conf
-Run the Makefile command below to make a copy to .env file
+## Make a copy of .env and make changes
+Make sure to change the environment variables to your specification
 ```
-make env
+cp .env.laradocker .env
 ```
 
 Change the environment variables in .env file. If using PHP < 8.0 make sure to choose the correct Laravel version that support the PHP version you are using.
@@ -36,19 +37,8 @@ Change the environment variables in .env file. If using PHP < 8.0 make sure to c
 | LOCAL_HTTP_PORT   | Change HTTP port          |
 | LOCAL_HTTPS_PORT  | Change HTTPS port         |
 
-## Setting up database
-If using host machine database. Set DB_HOST in Laravel .env to use the internal host gateway.
-```
-DB_HOST=host.docker.internal
-```
-
-If using Database image, make sure to uncomment the database section in:
-- .env file
-- docker-compose.yml file
-- In Laravel .env file set the DB_HOST=localhost
-
 ## Create a Laravel project and build container
-Type the command below to build the container, fire up the webserver and install Laravel project all in one command. All Laravel files will be install under the directory 'html'.
+Type the command below to build the Docker container, fire up the webserver and install Laravel project all in one command. All Laravel files will be install under the directory 'html'.
 ```
 make project
 ```
@@ -93,7 +83,6 @@ Usage: **make COMMAND**
 
 | Command   | Description                             |
 | --------- | :---------------------------------------|
-| env       | Copy .env-laradocker to .env            |
 | project   | Build Docker and create Laravel project |
 | build     | Build Docker container                  |
 | up        | Bring up Docker container               |
@@ -103,3 +92,15 @@ Usage: **make COMMAND**
 | seed      | php artisan db:seed                     |
 | npm-dev   | Run command: npm run dev                |
 | npm-build | Run command: npm run build              |
+
+
+## Setting up database
+If using host machine database. In Laravel app .env file, use the internal host gateway.
+```
+DB_HOST=host.docker.internal
+```
+
+If using Database image, make sure to uncomment the database section in:
+- .env file
+- docker-compose.yml file
+- In Laravel .env file set the DB_HOST=localhost

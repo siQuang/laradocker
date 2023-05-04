@@ -8,6 +8,7 @@ project:
 	@make composer-update
 
 build: 
+	cp docker/config/vhosts/default.example.conf docker/config/vhosts/default.conf
 	docker compose build --no-cache --force-rm
 
 up: 
@@ -28,10 +29,6 @@ endif
 
 composer-update:
 	docker exec ${PROJECT_NAME} bash -c "composer update"
-
-env:
-	cp .env.laradocker .env
-	cp docker/config/vhosts/default.example.conf docker/config/vhosts/default.conf
 
 migrate:
 	docker exec ${PROJECT_NAME} bash -c "php artisan migrate"
