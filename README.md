@@ -30,7 +30,7 @@ cp .env.laradocker .env
 Change the environment variables in .env file. If using PHP < 8.0 make sure to choose the correct Laravel version that support the PHP version you are using.
 
 | Environment       | Description               |
-|-------------------|:--------------------------|
+|:------------------|:--------------------------|
 | PROJECT_NAME      | Container name            |
 | LARAVEL_VERSION   | Leave blank for latest    |
 | PHP_VERSION       | Select PHP version        |
@@ -81,17 +81,18 @@ These are some of the Makefile commands to use with your development.
 
 Usage: **make COMMAND**
 
-| Command   | Description                             |
-| --------- | :---------------------------------------|
-| project   | Build Docker and create Laravel project |
-| build     | Build Docker container                  |
-| up        | Bring up Docker container               |
-| down      | Bring down Docker container             |
-| exec      | Execute a command inside container      |
-| migrate   | php artisan migrate                     |
-| seed      | php artisan db:seed                     |
-| npm-dev   | Run command: npm run dev                |
-| npm-build | Run command: npm run build              |
+| Command     | Description                                     |
+| ---------   | :-----------------------------------------------|
+| project     | Build Docker and create Laravel project         |
+| build       | Build Docker container                          |
+| up          | Bring up Docker container                       |
+| down        | Bring down Docker container                     |
+| exec        | Execute a command inside container              |
+| migrate     | Run Laravel command: 'php artisan migrate'      |
+| seed        | Run Laravel command: 'php artisan db:seed'      |
+| npm-dev     | Run Vite command: 'npm run dev' for Vite        |
+| npm-build   | Run Vite command: 'npm run build' for Vite      |
+| npm-install | Run command: 'npm install' inside Laravel app   |
 
 
 ## Setting up database

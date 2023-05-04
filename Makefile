@@ -6,6 +6,7 @@ project:
 	@make up
 	@make laravel
 	@make composer-update
+	@make npm-install
 
 build: 
 	cp docker/config/vhosts/default.example.conf docker/config/vhosts/default.conf
@@ -41,3 +42,6 @@ npm-dev:
 
 npm-build:
 	cd ./html; npm run build
+
+npm-install:
+	docker exec ${PROJECT_NAME} bash -c "npm install"
