@@ -7,7 +7,7 @@ You can have the project up and running in a few minutes.
 - Make changes in .env to your specification
 - Type: `make project` to build the container and create Laravel project
 
-And that's' it! Direct your browser to http://localhost
+And that's' it! Direct your browser to http://localhost:[ASSIGNED-PORT]
 
 ## Prerequistes:
 - [Docker](https://www.docker.com/products/docker-desktop/)
@@ -54,7 +54,7 @@ make composer-update
 ## Open project in browser
 To view the project, open a browser and enter in the container url.
 ```
-http://localhost:8080
+http://localhost:[ASSIGNED-PORT]
 ```
 
 ## Run migration and seeders with Makefile commands
