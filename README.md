@@ -48,7 +48,7 @@ OR if you prefer to do each step manually, here are the commands.
 make build
 make up
 make laravel
-make composer-update
+make composer-install
 ```
 
 ## Open project in browser
@@ -93,6 +93,7 @@ Usage: **make COMMAND**
 | npm-dev     | Run Vite command: 'npm run dev' for Vite        |
 | npm-build   | Run Vite command: 'npm run build' for Vite      |
 | npm-install | Run command: 'npm install' inside Laravel app   |
+| permissions | Fix storage permissions                         |
 
 
 ## Setting up database
