@@ -1,7 +1,7 @@
-# Laravel, Docker, and Makefile
+# Laravel - Docker - Makefile
 This is for Laravel local development with Docker Compose. This built consists of PHP (8.2, 8.1, 8.0, 7.4, 7.3, 7.2), Apache and MariaDB (10.6, 10.5, 10.4, 10.3). Set the version needed in .env file. 
 
-You can have the project up and running in a few minutes.
+You can have the project up and running in a few steps.
 - Clone this git repository and CD into the project diretory
 - Make a copy of .env from .env.laradocker file
 - Make changes in .env to your specification
@@ -11,7 +11,7 @@ And that's' it! Direct your browser to http://localhost:[ASSIGNED-PORT]
 
 ## Prerequistes:
 - [Docker](https://www.docker.com/products/docker-desktop/)
-- [Makefile](https://www.gnu.org/software/make/) | It's recommended to install Makefile, but if you prefer to install manually, look in the Makefile file for all the commands to get the project up and running.
+- [Makefile](https://www.gnu.org/software/make/) | It's recommended to install Makefile, but if you prefer to install manually, look in the Makefile  for all the commands to get the project up and running.
 
 ## Installation
 Clone this Git repository and rename your project to anything you want.
