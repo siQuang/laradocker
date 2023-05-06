@@ -5,7 +5,7 @@ project:
 	@make build
 	@make up
 	@make laravel
-	@make composer-update
+	@make composer-install
 	@make npm-install
 
 build: 
@@ -28,8 +28,8 @@ else
 	docker exec ${PROJECT_NAME} bash -c "composer create-project laravel/laravel=${laravel} ."
 endif
 
-composer-update:
-	docker exec ${PROJECT_NAME} bash -c "composer update"
+composer-install:
+	docker exec ${PROJECT_NAME} bash -c "composer install"
 
 migrate:
 	docker exec ${PROJECT_NAME} bash -c "php artisan migrate"
@@ -45,3 +45,8 @@ npm-build:
 
 npm-install:
 	cd ./html; npm install
+	
+permissions:
+	docker exec ${PROJECT_NAME} bash -c "chmod -R 775 storage bootstrap/cache"
+	docker exec ${PROJECT_NAME} bash -c "chown -R $$USER:www-data storage"
+	docker exec ${PROJECT_NAME} bash -c "chown -R $$USER:www-data bootstrap/cache"
