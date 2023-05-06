@@ -1,4 +1,4 @@
-# Laravel with Docker
+# Laravel, Docker, and Makefile
 This is for Laravel local development with Docker Compose. This built consists of PHP (8.2, 8.1, 8.0, 7.4, 7.3, 7.2), Apache and MariaDB (10.6, 10.5, 10.4, 10.3). Set the version needed in .env file. 
 
 You can have the project up and running in a few minutes.
