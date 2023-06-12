@@ -45,10 +45,12 @@ make project
 
 OR if you prefer to do each step manually, here are the commands.
 ```
-make build
-make up
+make cp.vhost
+make docker.build
+make docker.up
 make laravel
-make composer-install
+make composer.install
+make npm.install
 ```
 
 ## Open project in browser
@@ -58,18 +60,18 @@ http://localhost:[ASSIGNED-PORT]
 ```
 
 ## Run migration and seeders with Makefile commands
-You can use the `make migrate` or `make seed` to migrate and seed the database.
+You can use the `make artisan.migrate` or `make artisan.seed` to migrate and seed the database.
 ```
 # Run migrate
-make migrate
+make artisan.migrate
 
 # Run seeder
-make seed
+make artisan.seed
 ```
 
 To execute a command inside the running container.
 ```
-make exec
+make docker.exec
 ```
 
 ---
@@ -77,23 +79,32 @@ make exec
 ---
 
 ## Makefile Commands
-These are some of the Makefile commands to use with your development.
+These are some of the Makefile commands to use with development.
 
 Usage: **make COMMAND**
 
-| Command     | Description                                     |
-| ---------   | :-----------------------------------------------|
-| project     | Build Docker and create Laravel project         |
-| build       | Build Docker container                          |
-| up          | Bring up Docker container                       |
-| down        | Bring down Docker container                     |
-| exec        | Execute a command inside container              |
-| migrate     | Run Laravel command: 'php artisan migrate'      |
-| seed        | Run Laravel command: 'php artisan db:seed'      |
-| npm-dev     | Run Vite command: 'npm run dev' for Vite        |
-| npm-build   | Run Vite command: 'npm run build' for Vite      |
-| npm-install | Run command: 'npm install' inside Laravel app   |
-| permissions | Fix storage permissions                         |
+| Command               | Description                                               |
+| ----------------------| :---------------------------------------------------------|
+| project               | Build Docker and create Laravel project                   |
+| docker.build          | Build Docker container                                    |
+| docker.up             | Bring up Docker container                                 |
+| docker.down           | Bring down Docker container                               |
+| docker.exec           | Execute a command inside container                        |
+| npm.dev               | Run Vite command: 'npm run dev' for Vite                  |
+| npm.build             | Run Vite command: 'npm run build' for Vite                |
+| npm.install           | Run command: 'npm install' inside Laravel app             |
+| permissions           | Fix storage permissions                                   |
+| laravel.version       | Check Laravel version                                     |
+| artisan.migrate       | Run database migration                                    |
+| artisan.migrate.fresh | Reset and re-run all migrations                           |
+| artisan.seed          | Run Laravel command: 'php artisan db:seed'                |
+| artisan.serve         | Run the Laravel application using PHP development server  |
+| artisan.up            | Bring the application out of maintenance / demo mode      |
+| artisan.down          | Put the application in maintenance / demo mode            |
+| artisan.test          | Run the application tests                                 |
+| artisan.cache.clear   | Clear application cache                                   |
+| artisan.config.clear  | Clear application config                                  |
+| artisan.view.clear    | Clear application views                                   |
 
 
 ## Setting up database
